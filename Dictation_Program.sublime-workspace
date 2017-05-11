@@ -303,6 +303,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "source/Word.java",
+			"settings":
+			{
+				"buffer_size": 453,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -399,8 +407,14 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/home/handsomemark/Downloads/Oral English Training/Dictation Program",
+		"/home/handsomemark/Downloads/Oral English Training/Dictation Program/source"
+	],
 	"file_history":
 	[
+		"/home/handsomemark/Downloads/Oral English Training/Dictation Program/UML plan.mdj",
 		"/home/handsomemark/Desktop/Thinking_in_Java_Exercises/Chapter Twenty (Concurrency)/ExerciseFourtyTwo.java",
 		"/home/handsomemark/Desktop/Thinking_in_Java_Exercises/TIJ4-code/concurrency/ActiveObjectDemo.java",
 		"/home/handsomemark/Desktop/Thinking_in_Java_Exercises/TIJ4-code/net/mindview/util/MapData.java",
@@ -527,8 +541,7 @@
 		"/home/handsomemark/Desktop/Thinking in Java Exercises/TIJ4-code/annotations/UseCaseTracker.java",
 		"/home/handsomemark/Desktop/Thinking in Java Exercises/Chapter Eighteen (Enumerated Types)/ExericiseEleven.java",
 		"/home/handsomemark/Desktop/Thinking in Java Exercises/TIJ4-code/enumerated/Input.java",
-		"/home/handsomemark/Desktop/Thinking in Java Exercises/TIJ4-code/enumerated/VendingMachine.java",
-		"/home/handsomemark/Desktop/Thinking in Java Exercises/Chapter Eighteen (Enumerated Types)/ExerciseNine.java"
+		"/home/handsomemark/Desktop/Thinking in Java Exercises/TIJ4-code/enumerated/VendingMachine.java"
 	],
 	"find":
 	{
@@ -546,6 +559,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"w.getOccurrenceCount()",
+			"getOccurrenceCount",
+			"occurrenceCount",
+			"getOccurrenceCount",
+			"rv",
+			"i",
+			"occurrenceCount",
 			"synchronized",
 			"ExecutorService",
 			"newSingleThreadExecutor",
@@ -666,14 +686,7 @@
 			"construcotrPool",
 			"SlabConstructor",
 			"FrameConstructor",
-			"WheelRobot",
-			"SlabConstructor",
-			"DriveTrainRobot",
-			"PlumbingConstructor",
-			"DriveTrainRobot",
-			"FoundationConstructor",
-			"DriveTrainRobot",
-			"FormsConstructor"
+			"WheelRobot"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -688,11 +701,48 @@
 		"whole_word": false,
 		"wrap": true
 	},
+	"folders":
+	[
+		{
+			"path": "/home/handsomemark/Downloads/Oral English Training/Dictation Program"
+		}
+	],
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "source/Word.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 453,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								156,
+								156
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"open_with_edit": true,
+							"syntax": "Packages/Java/Java.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
