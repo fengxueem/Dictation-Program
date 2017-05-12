@@ -5,8 +5,10 @@ public class Word implements Comparable<Word> {
   private int occurrenceCount;
   private Lock lock = new ReentrantLock();
 
+  // every time a new word comes, it's counted 1
   public Word(String name) {
   	this.name = name;
+  	this.occurrenceCount = 1;
   }
 
   public int compareTo(Word w) {
