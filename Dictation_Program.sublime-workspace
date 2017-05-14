@@ -307,7 +307,23 @@
 			"file": "source/Word.java",
 			"settings":
 			{
-				"buffer_size": 453,
+				"buffer_size": 822,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/WordExtractor.java",
+			"settings":
+			{
+				"buffer_size": 84,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/TxtWordExtractor.java",
+			"settings":
+			{
+				"buffer_size": 1106,
 				"line_ending": "Unix"
 			}
 		}
@@ -414,6 +430,7 @@
 	],
 	"file_history":
 	[
+		"/home/handsomemark/Downloads/Oral English Training/Dictation Program/source/text.txt",
 		"/home/handsomemark/Downloads/Oral English Training/Dictation Program/UML plan.mdj",
 		"/home/handsomemark/Desktop/Thinking_in_Java_Exercises/Chapter Twenty (Concurrency)/ExerciseFourtyTwo.java",
 		"/home/handsomemark/Desktop/Thinking_in_Java_Exercises/TIJ4-code/concurrency/ActiveObjectDemo.java",
@@ -540,8 +557,7 @@
 		"/home/handsomemark/Desktop/Thinking in Java Exercises/TIJ4-code/annotations/UseCase.java",
 		"/home/handsomemark/Desktop/Thinking in Java Exercises/TIJ4-code/annotations/UseCaseTracker.java",
 		"/home/handsomemark/Desktop/Thinking in Java Exercises/Chapter Eighteen (Enumerated Types)/ExericiseEleven.java",
-		"/home/handsomemark/Desktop/Thinking in Java Exercises/TIJ4-code/enumerated/Input.java",
-		"/home/handsomemark/Desktop/Thinking in Java Exercises/TIJ4-code/enumerated/VendingMachine.java"
+		"/home/handsomemark/Desktop/Thinking in Java Exercises/TIJ4-code/enumerated/Input.java"
 	],
 	"find":
 	{
@@ -559,6 +575,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"occurrenceCount",
+			"wordList",
+			"TxtWordExtractor",
+			"wordList",
+			"open",
+			"fileName",
+			"filePath",
+			"in",
+			"wordList",
+			"s",
+			"wordsString",
+			"occurrenceCount",
+			"fileName",
+			"filePath",
+			"static",
+			"Lock",
 			"w.getOccurrenceCount()",
 			"getOccurrenceCount",
 			"occurrenceCount",
@@ -670,23 +702,7 @@
 			"FrameConstructor",
 			"PlumbingConstructor",
 			"SlabConstructor",
-			"FoundationConstructor",
-			"PlumbingConstructor",
-			"FormsConstFoundationConstructorructor",
-			"FoundationConstructor",
-			"WheelRobot",
-			"FormsConstructor",
-			"WheelRobot",
-			"SteelConstructor",
-			"DriveTrainRobot",
-			"SteelConstructor",
-			"EngineRobot",
-			"FootingsConstructor",
-			"robotPool",
-			"construcotrPool",
-			"SlabConstructor",
-			"FrameConstructor",
-			"WheelRobot"
+			"FoundationConstructor"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -710,7 +726,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -719,15 +735,47 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 453,
+						"buffer_size": 822,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								156,
-								156
+								288,
+								288
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"is_init_dirty_state": false,
+							"open_with_edit": true,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Java/Java.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "source/WordExtractor.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 84,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								49,
+								49
 							]
 						],
 						"settings":
@@ -738,6 +786,36 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "source/TxtWordExtractor.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1106,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1035,
+								1035
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"open_with_edit": true,
+							"syntax": "Packages/Java/Java.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -784,6 +862,10 @@
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 130.0
 	},
 	"pinned_build_system": "",
 	"project": "",
