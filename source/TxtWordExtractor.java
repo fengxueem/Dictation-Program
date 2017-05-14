@@ -34,7 +34,7 @@ public class TxtWordExtractor implements WordExtractor{
   public static void main(String[] args) {
   	TxtWordExtractor txt = new TxtWordExtractor();
   	for (Word w: txt.read("../text.txt")) {
-	  System.out.print(w.getName() + " ");  		
+	    System.out.print(w.getName() + " ");  		
   	}
   }  
 }
