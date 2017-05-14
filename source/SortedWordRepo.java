@@ -1,9 +1,15 @@
 import java.util.*;
 
 public class SortedWordRepo implements WordRepo {
-  private TreeSet<Word> allWords = new TreeSet<Word>();
+  private LinkedList<Word> allWords = new LinkedList<Word>();
 
   public void put(Word w) {
+  	Word temp = get(w.getName());
+  	if (temp != null) {
+  	  temp.addCount(1);
+  	  remove(temp);
+  	  w = temp;
+  	}
   	allWords.add(w);
   }
   public boolean remove(Word w) {
@@ -20,13 +26,19 @@ public class SortedWordRepo implements WordRepo {
   public String toString() {
   	return allWords.toString();
   }
-  
+  public void sort() {
+  	Collections.sort(allWords);
+  }
+
   public static void main(String[] args) {
   	TxtWordExtractor txt = new TxtWordExtractor();
   	SortedWordRepo repo = new SortedWordRepo();
   	for (Word w: txt.read("../text.txt")) {
-	  repo.put(w);  		
+      System.out.println(w);
+	  repo.put(w);
+  	  System.out.println(repo);
   	}
+  	repo.sort();
   	System.out.println(repo);
   }
 }

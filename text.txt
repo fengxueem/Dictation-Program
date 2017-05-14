@@ -1,1 +1,1 @@
-!hello text word extractor~
+!hello text word extractor~hello

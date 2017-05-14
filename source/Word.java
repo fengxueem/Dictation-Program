@@ -13,8 +13,8 @@ public class Word implements Comparable<Word> {
 
   public int compareTo(Word w) {
   	int otherCount = w.getOccurrenceCount();
-  	return (occurrenceCount < otherCount ? -1 :
-  	 	(occurrenceCount == otherCount ? 0 : 1));
+  	return (occurrenceCount < otherCount ? 1 :
+  	 	(occurrenceCount == otherCount ? 0 : -1));
   }
   
   public String getName() {
@@ -37,5 +37,15 @@ public class Word implements Comparable<Word> {
   	} finally {
   	  lock.unlock();
   	}
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    return obj instanceof Word && name.equals(((Word)obj).getName());
+  }
+
+  @Override
+  public String toString() {
+    return name + " : " + getOccurrenceCount();
   }
 }
