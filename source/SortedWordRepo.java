@@ -6,11 +6,13 @@ public class SortedWordRepo implements WordRepo {
   public void put(Word w) {
   	Word temp = get(w.getName());
   	if (temp != null) {
-  	  temp.addCount(1);
-  	  remove(temp);
-  	  w = temp;
-  	}
-  	allWords.add(w);
+      // if w is an existed word, then update its occurrenceCount
+  	  temp.addCount(w.getOccurrenceCount());
+  	} else {
+      // if w is a new word, just add
+      allWords.add(w);
+    }
+    sort();
   }
   public boolean remove(Word w) {
   	return allWords.remove(w);
@@ -35,10 +37,9 @@ public class SortedWordRepo implements WordRepo {
   	SortedWordRepo repo = new SortedWordRepo();
   	for (Word w: txt.read("../text.txt")) {
       System.out.println(w);
-	  repo.put(w);
+      repo.put(w);
   	  System.out.println(repo);
   	}
-  	repo.sort();
   	System.out.println(repo);
   }
 }
