@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"so",
+				"sort()	func"
+			],
+			[
+				"toA",
+				"toArray()	func"
+			],
+			[
 				"StringB",
 				"I-StringBuilder	init"
 			],
@@ -307,7 +315,7 @@
 			"file": "source/Word.java",
 			"settings":
 			{
-				"buffer_size": 822,
+				"buffer_size": 1041,
 				"line_ending": "Unix"
 			}
 		},
@@ -323,7 +331,31 @@
 			"file": "source/TxtWordExtractor.java",
 			"settings":
 			{
-				"buffer_size": 1106,
+				"buffer_size": 1108,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/SortedWordRepo.java",
+			"settings":
+			{
+				"buffer_size": 964,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "text.txt",
+			"settings":
+			{
+				"buffer_size": 32,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/WordRepo.java",
+			"settings":
+			{
+				"buffer_size": 97,
 				"line_ending": "Unix"
 			}
 		}
@@ -575,6 +607,23 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"temp",
+			"w",
+			"addCount",
+			"allWords",
+			"TreeSet",
+			"equals",
+			"compareTo",
+			"Wrod",
+			"occurrenceCount",
+			"getOccurrenceCount",
+			"occurrenceCount",
+			"e",
+			"Word",
+			"SortedWordRepo",
+			"e",
+			"getName",
+			"allWords",
 			"occurrenceCount",
 			"wordList",
 			"TxtWordExtractor",
@@ -685,24 +734,7 @@
 			"footings",
 			"concreteForms",
 			"footings",
-			"footing",
-			"for",
-			"ooting",
-			"wait",
-			"steel",
-			"synchronized",
-			"framed",
-			"synchronized",
-			"installing",
-			"car",
-			"robots",
-			"construcotrPool",
-			"constructorPool",
-			"SlabConstructor",
-			"FrameConstructor",
-			"PlumbingConstructor",
-			"SlabConstructor",
-			"FoundationConstructor"
+			"footing"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -726,7 +758,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -735,15 +767,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 822,
+						"buffer_size": 1041,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								288,
-								288
+								912,
+								912
 							]
 						],
 						"settings":
@@ -752,13 +784,15 @@
 							"is_init_dirty_state": false,
 							"open_with_edit": true,
 							"origin_encoding": "ASCII",
-							"syntax": "Packages/Java/Java.sublime-syntax"
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -781,14 +815,16 @@
 						"settings":
 						{
 							"git_gutter_is_enabled": true,
+							"is_init_dirty_state": false,
 							"open_with_edit": true,
+							"origin_encoding": "ASCII",
 							"syntax": "Packages/Java/Java.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -797,21 +833,57 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1106,
+						"buffer_size": 1108,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1035,
-								1035
+								960,
+								960
 							]
 						],
 						"settings":
 						{
 							"git_gutter_is_enabled": true,
+							"is_init_dirty_state": false,
 							"open_with_edit": true,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "source/SortedWordRepo.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 964,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								929,
+								929
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"is_init_dirty_state": false,
+							"open_with_edit": true,
+							"origin_encoding": "ASCII",
 							"syntax": "Packages/Java/Java.sublime-syntax"
 						},
 						"translation.x": 0.0,
@@ -819,6 +891,69 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "text.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 32,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32,
+								32
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "source/WordRepo.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 97,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								23
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"is_init_dirty_state": false,
+							"open_with_edit": true,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Java/Java.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]

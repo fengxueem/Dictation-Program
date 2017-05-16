@@ -7,8 +7,12 @@ public class Word implements Comparable<Word> {
 
   // every time a new word comes, it's counted 1
   public Word(String name) {
+    this(name,1);
+  }
+  // add one more constructor for flexibility
+  public Word(String name, int occurrenceCount) {
   	this.name = name;
-  	this.occurrenceCount = 1;
+  	this.occurrenceCount = occurrenceCount;
   }
 
   public int compareTo(Word w) {
