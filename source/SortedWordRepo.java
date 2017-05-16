@@ -25,6 +25,9 @@ public class SortedWordRepo implements WordRepo {
   	}
   	return null;
   }
+  public Iterator<Word> getIterator() {
+    return allWords.iterator();
+  }
   public String toString() {
   	return allWords.toString();
   }
