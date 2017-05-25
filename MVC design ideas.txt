@@ -1,0 +1,3 @@
+As this is my first time to design a MVC program and decide to do it from scratch, I will write down all the thoughts about how to make it happen here.
+05.25.2017
+The professor from Digital Image Processing said once think big start small. The view of this program shall change with the need, however, it's quite easy to decide what I want it to look like at first place. So, let's start with view.
