@@ -1,73 +1,71 @@
 package view;
 
-// What's commented below is the command line version (0.1)
-// import java.util.*;
+import java.awt.BorderLayout;
 
-// public class LetUsProunce {
-//   private WordExtractor wordExtractor = new TxtWordExtractor(); 
-//   private WordRepo wordRepo = new SortedWordRepo();
-  
-//   public void collectWords(String... filePaths) {
-//   	for (String filePath : filePaths) {
-//   	  System.out.println("Start reading " + filePath);
-//   	  for (Word w: wordExtractor.read(filePath)) {
-//       	wordRepo.put(w);
-//   	  }
-//   	}
-//   }
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JScrollBar;
+import javax.swing.JTextField;
 
-//   public void dictate() {
-//   	Iterator<Word> it = wordRepo.getIterator();
-//   	while (it.hasNext()){
-//   	  System.out.println(it.next());
-//   	  try {
-//   	    System.in.read();
-//   	  } catch(Exception e) {
-//   	  	e.printStackTrace();
-//   	  }
-//   	}
-//   }
+public class LetUsProunceView extends JFrame {
 
-//   public static void main(String[] args) {
-//   	LetUsProunce let = new LetUsProunce();
-//   	let.collectWords(args);
-//   	System.out.println("Please type enter when you need to prounce a new word");
-//   	let.dictate();
-//   	System.out.println("Congrats!");
-//   }
-// }
-import java.awt.*;
-import javax.swing.*;
+	private JPanel contentPane;
+	private JTextField textField;
 
-public class LetUsProunceView {
-  private static void createAndShowGUI() {
-    //Create and set up the window.
-    JFrame frame = new JFrame("Let Us Prounce");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LetUsProunceView frame = new LetUsProunceView();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
-    //Create the menu bar.  Make it have a green background.
-    JMenuBar menuBar = new JMenuBar();
-    menuBar.setOpaque(true);
-    menuBar.setPreferredSize(new Dimension(200, 20));
+	/**
+	 * Create the frame.
+	 */
+	public LetUsProunceView() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnFile = new JMenu("File");
+		menuBar.add(mnFile);
+		
+		JMenuItem mntmFile = new JMenuItem("Open File...");
+		mnFile.add(mntmFile);
+		
+		JMenu mnWordRepo = new JMenu("Word Repo");
+		menuBar.add(mnWordRepo);
+		
+		JMenu mnDictate = new JMenu("Dictate");
+		menuBar.add(mnDictate);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		contentPane.add(scrollBar, BorderLayout.CENTER);
+		
+		textField = new JTextField();
+		textField.setText("1");
+		contentPane.add(textField, BorderLayout.NORTH);
+		textField.setColumns(10);
+	}
 
-    //Create a yellow label to put in the content pane.
-    JLabel label = new JLabel();
-    label.setOpaque(true);
-    label.setPreferredSize(new Dimension(200, 180));
- 
-    //Set the menu bar and add the label to the content pane.
-    frame.setJMenuBar(menuBar);
-    frame.getContentPane().add(label, BorderLayout.CENTER);
-
-    //Display the window.
-    frame.pack();
-    frame.setVisible(true);
-  }
-  public static void main(String[] args){
-    SwingUtilities.invokeLater(new Runnable() {
-        public void run() {
-          createAndShowGUI();
-        }
-    });
-  }  
 }
