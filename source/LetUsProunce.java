@@ -1,4 +1,4 @@
-// What's commentted below is the command line version (0.1)
+// What's commented below is the command line version (0.1)
 // import java.util.*;
 
 // public class LetUsProunce {
@@ -34,22 +34,33 @@
 //   	System.out.println("Congrats!");
 //   }
 // }
+import java.awt.*;
 import javax.swing.*;
 
 public class LetUsProunce {
   private static void createAndShowGUI() {
-        //Create and set up the window.
-        JFrame frame = new JFrame("Let Us Prounce");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    //Create and set up the window.
+    JFrame frame = new JFrame("Let Us Prounce");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    //Create the menu bar.  Make it have a green background.
+    JMenuBar menuBar = new JMenuBar();
+    menuBar.setOpaque(true);
+    menuBar.setPreferredSize(new Dimension(200, 20));
+
+    //Create a yellow label to put in the content pane.
+    JLabel label = new JLabel();
+    label.setOpaque(true);
+    label.setPreferredSize(new Dimension(200, 180));
  
-        //Add the ubiquitous "Hello World" label.
-        JLabel label = new JLabel("Prounce is important");
-        frame.getContentPane().add(label);
- 
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
-    }
+    //Set the menu bar and add the label to the content pane.
+    frame.setJMenuBar(menuBar);
+    frame.getContentPane().add(label, BorderLayout.CENTER);
+
+    //Display the window.
+    frame.pack();
+    frame.setVisible(true);
+  }
   public static void main(String[] args){
     SwingUtilities.invokeLater(new Runnable() {
         public void run() {

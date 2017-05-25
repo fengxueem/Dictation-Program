@@ -3,7 +3,7 @@ import java.util.*;
 
 public class TxtWordExtractor implements WordExtractor{
   public List<Word> read(String filePath) {
-  	List<Word> wordList = new ArrayList();
+  	List<Word> wordList = new ArrayList<Word>();
   	String line = null;
     try {
       BufferedReader bufferReader = new BufferedReader(new FileReader(

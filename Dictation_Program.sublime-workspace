@@ -359,7 +359,7 @@
 			"file": "source/LetUsProunce.java",
 			"settings":
 			{
-				"buffer_size": 896,
+				"buffer_size": 2092,
 				"line_ending": "Unix"
 			}
 		},
@@ -619,6 +619,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"yellowLabel",
+			"label",
+			"greenMenuBar",
+			"menuBar",
+			"greenMenuBar",
+			"menuBar",
+			"Runnalbe",
+			"HelloWorldSwing",
+			"LetUsProunce",
+			"HelloWorldSwing",
 			"txt",
 			"wordExtractor",
 			"LetUsProunce",
@@ -736,17 +746,7 @@
 			"ReaderWriterList",
 			"ReaderWriterMap",
 			"ArrayList",
-			"ReaderWriterList",
-			"public",
-			"lock",
-			"30",
-			"100000",
-			"newValue",
-			"newvalue",
-			"oldValue",
-			"oldvalue",
-			"toString",
-			"public"
+			"ReaderWriterList"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -912,15 +912,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 896,
+						"buffer_size": 2092,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								428,
-								428
+								1887,
+								1887
 							]
 						],
 						"settings":
@@ -934,7 +934,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
