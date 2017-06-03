@@ -31,7 +31,6 @@ public class DictatePane extends JPanel {
 		wordField = new JTextField();
 		wordField.setFont(new Font("SansSerif", Font.BOLD, 30));
 		wordField.setHorizontalAlignment(SwingConstants.CENTER);
-//		wordField.setText("Millennium");
 		wordField.setForeground(Color.WHITE);
 		wordField.setEnabled(false);
 		wordField.setEditable(false);
