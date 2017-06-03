@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 
@@ -40,7 +43,21 @@ public class LetUsProunceView extends JFrame {
 	 * Create the frame.
 	 */
 	public LetUsProunceView() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// add window closing listener
+		// pop up a confirm dialog when user is trying to exit
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				int option= JOptionPane.showConfirmDialog( 
+						LetUsProunceView.this, "Exit system? ", "Confirm Exit", JOptionPane.YES_NO_OPTION); 
+				if(option == JOptionPane.YES_OPTION){
+					if(e.getWindow() == LetUsProunceView.this){ 
+						System.exit(0); 
+			        }
+				} 
+			}
+		});
 		setBounds(100, 100, 450, 300);
 		
 		// create menu bar
