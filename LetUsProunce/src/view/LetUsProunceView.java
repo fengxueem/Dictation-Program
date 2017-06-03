@@ -19,6 +19,7 @@ public class LetUsProunceView extends JFrame {
 	public JMenu mnFile, mnWordRepo, mnDictate;
 	public JMenuItem mntmFile;
 
+	public DictatePane dictatePane;
 	/**
 	 * Launch the view.
 	 */
@@ -58,10 +59,19 @@ public class LetUsProunceView extends JFrame {
 		mnDictate = new JMenu("Dictate");
 		menuBar.add(mnDictate);
 		
+		// create content pane
 		contentPane = new JPanel();
+		// clear the default layout for the content pane
+		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		
-		
+		addPanels();
+	}
+	
+	private void addPanels() {
+		// add dictation pane
+		dictatePane = new DictatePane();
+		dictatePane.setBounds(0, 0, 450, 300);
+		contentPane.add(dictatePane);
 	}
 
 }
