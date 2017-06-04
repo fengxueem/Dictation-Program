@@ -1,21 +1,19 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollBar;
-import javax.swing.JTextField;
 
 public class LetUsProunceView extends JFrame {
+	
+	private static final int HEIGHT = 300, WIDTH = 450;
 
 	private JPanel contentPane;
 	private JMenuBar menuBar;
@@ -88,11 +86,11 @@ public class LetUsProunceView extends JFrame {
 	private void addPanels() {
 		// add word repo pane
 		wordRepoPane = new WordRepoPane();
-		wordRepoPane.setBounds(0, 0, 450, 300);
+		wordRepoPane.setBounds(0, 0, WIDTH, HEIGHT);
 		contentPane.add(wordRepoPane);
 		// add dictation pane
 		dictatePane = new DictatePane();
-		dictatePane.setBounds(0, 0, 450, 300);
+		dictatePane.setBounds(0, 0, WIDTH, HEIGHT);
 		contentPane.add(dictatePane);
 	}
 
