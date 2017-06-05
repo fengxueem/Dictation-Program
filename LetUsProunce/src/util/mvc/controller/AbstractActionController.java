@@ -15,6 +15,8 @@ abstract public class AbstractActionController extends ActionListenerManager {
 	
 	protected List<MessageHandler> aimObjects=new ArrayList<MessageHandler>();
 	
+	abstract protected void addActionEvents();
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		source=((JComponent)e.getSource()).getName();
