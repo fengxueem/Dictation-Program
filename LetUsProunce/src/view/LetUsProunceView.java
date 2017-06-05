@@ -22,7 +22,6 @@ public class LetUsProunceView extends JFrame {
 
 	public DictatePane dictatePane;
 	public WordRepoPane wordRepoPane;
-	private JMenuItem mntmDictationStart;
 	/**
 	 * Launch the view.
 	 */
@@ -75,9 +74,6 @@ public class LetUsProunceView extends JFrame {
 		
 		mnDictate = new JMenu("Dictate");
 		menuBar.add(mnDictate);
-		
-		mntmDictationStart = new JMenuItem("Start");
-		mnDictate.add(mntmDictationStart);
 		
 		// create content pane
 		contentPane = new JPanel();
