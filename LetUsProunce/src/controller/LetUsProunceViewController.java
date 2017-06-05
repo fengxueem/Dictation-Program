@@ -9,11 +9,12 @@ import view.LetUsProunceView;
 public class LetUsProunceViewController extends AbstractActionController implements MessageHandler {
 	private LetUsProunceView view;
 	private DictatePaneController dictatePaneController;
-//	private WordRepoPaneController wordRepoPaneController;
+	private WordRepoPaneController wordRepoPaneController;
 	
 	public LetUsProunceViewController(LetUsProunceView view) {
 		this.view = view;
 		linkViewsWithController();
+		addActionEvents();
 	}
 	
 	public void start() {
@@ -24,9 +25,9 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		super.actionPerformed(e);
-		if ((e.getSource().equals(view.mnDictate))) {
+		if ((e.getSource().equals(view.mntmDictationStart))) {
 			dictatePaneController.getPane().setVisible(true);
-//			wordRepoPaneController.getPane().setVisible(false);
+			wordRepoPaneController.getPane().setVisible(false);
 		}
 	}
 	
@@ -40,7 +41,7 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 	@Override
 	protected void addActionEvents() {
 		// observe (JMenu: mnDictate) action events
-		addActionEvent(view.mnDictate,"mnDictate", "show_dictate_ui");
+		addActionEvent(view.mntmDictationStart);
 	}
 	
 	private void linkViewsWithController() {
@@ -48,13 +49,13 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 		// By implementing MessageHandler, this class has power to handler messages coming from its panels
 		dictatePaneController.addActionMessageHandler(this);
 		
-//		wordRepoPaneController = new WordRepoPaneController(view.wordRepoPane);
-//		wordRepoPaneController.addActionMessageHandler(this);
+		wordRepoPaneController = new WordRepoPaneController(view.wordRepoPane);
+		wordRepoPaneController.addActionMessageHandler(this);
 	}
 	
 	private void initUI() {
 		view.setVisible(true);
 		dictatePaneController.getPane().setVisible(false);
-//		wordRepoPaneController.getPane().setVisible(true);
+		wordRepoPaneController.getPane().setVisible(true);
 	}
 }
