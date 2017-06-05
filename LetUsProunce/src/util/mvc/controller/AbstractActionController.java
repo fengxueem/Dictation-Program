@@ -4,17 +4,16 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComponent;
-import util.mvc.controller.ActionMessageHandler;
+import util.mvc.controller.MessageHandler;
 
-abstract public class AbstractActionControler extends ActionListenerManager{
+// This class implements observer pattern, where it contains a list of message handler,
+// provides ways to set action performed message for a Swing component by addActionEvent(),
+// and finally it's an action listener handling the action message registered by itself. 
+abstract public class AbstractActionController extends ActionListenerManager {
 	public String source;
 	public String command;
-	protected JComponent view;
-	protected List<ActionMessageHandler> aimObjects=new ArrayList<ActionMessageHandler>();
 	
-	public AbstractActionControler(JComponent view){
-		this.view=view;
-	}
+	protected List<MessageHandler> aimObjects=new ArrayList<MessageHandler>();
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -31,23 +30,19 @@ abstract public class AbstractActionControler extends ActionListenerManager{
 		return command;
 	}
 	
-	public JComponent getView(){
-		return view;
-	}
-	
-	public void addActionMessageHandler(ActionMessageHandler aimObject){
+	public void addActionMessageHandler(MessageHandler aimObject){
 		aimObjects.add(aimObject);
 	}
 	
-	public void removeActionMessageHandler(ActionMessageHandler aimObject){
+	public void removeActionMessageHandler(MessageHandler aimObject){
 		aimObjects.remove(aimObject);
 	}
 	
-	public void setActionMessageHandlers(ArrayList<ActionMessageHandler> aimObjects){
+	public void setActionMessageHandlers(ArrayList<MessageHandler> aimObjects){
 		this.aimObjects = aimObjects;
 	}
 	
-	public List<ActionMessageHandler> getActionMessageHandlers(){
+	public List<MessageHandler> getActionMessageHandlers(){
 		return aimObjects;
 	}
 	
@@ -56,17 +51,17 @@ abstract public class AbstractActionControler extends ActionListenerManager{
 	}
 	
 	protected void sendActionMessageToHandlers(String sourceName,String command){
-		for(ActionMessageHandler aimObject:aimObjects){
+		for(MessageHandler aimObject:aimObjects){
 			aimObject.achieveMessage(sourceName,command);
 		}
 	}
 	
-	protected void sendActionMessageToOneHandler(ActionMessageHandler aimObject,String sourceName,String command){
+	protected void sendActionMessageToOneHandler(MessageHandler aimObject,String sourceName,String command){
 			aimObject.achieveMessage(sourceName,command);
 	}
 	
-	protected void sendActionMessageToHandlerList(List<ActionMessageHandler> aimObjects,String sourceName,String command){
-		for(ActionMessageHandler aimObject:aimObjects){
+	protected void sendActionMessageToHandlerList(List<MessageHandler> aimObjects,String sourceName,String command){
+		for(MessageHandler aimObject:aimObjects){
 			aimObject.achieveMessage(sourceName,command);
 		}
 	}
