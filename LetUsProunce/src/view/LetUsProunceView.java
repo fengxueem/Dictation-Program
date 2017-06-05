@@ -18,7 +18,7 @@ public class LetUsProunceView extends JFrame {
 	private JPanel contentPane;
 	private JMenuBar menuBar;
 	public JMenu mnFile, mnWordRepo, mnDictate;
-	public JMenuItem mntmFile;
+	public JMenuItem mntmFile, mntmDictationStart;
 
 	public DictatePane dictatePane;
 	public WordRepoPane wordRepoPane;
@@ -75,6 +75,9 @@ public class LetUsProunceView extends JFrame {
 		mnDictate = new JMenu("Dictate");
 		menuBar.add(mnDictate);
 		
+		mntmDictationStart = new JMenuItem("Start");
+		mnDictate.add(mntmDictationStart);
+		
 		// create content pane
 		contentPane = new JPanel();
 		// clear the default layout for the content pane
@@ -93,5 +96,4 @@ public class LetUsProunceView extends JFrame {
 		dictatePane.setBounds(0, 0, WIDTH, HEIGHT);
 		contentPane.add(dictatePane);
 	}
-
 }
