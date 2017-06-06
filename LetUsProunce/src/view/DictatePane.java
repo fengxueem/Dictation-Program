@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 public class DictatePane extends JPanel {
 	
 	public JTextField wordField;
-	public JButton btnYes, btnNo;
+	public JButton btnYes, btnNo, btnGo;
 	public JLabel lblRepoNumber;
 	/**
 	 * Create the panel.
@@ -47,6 +47,10 @@ public class DictatePane extends JPanel {
 		lblRepoNumber = new JLabel("");
 		lblRepoNumber.setAlignmentX(Component.CENTER_ALIGNMENT);
 		verticalBox.add(lblRepoNumber);
+		
+		btnGo = new JButton("Go!");
+		btnGo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		verticalBox.add(btnGo);
 		
 		Component verticalStrut = Box.createVerticalStrut(20);
 		verticalBox.add(verticalStrut);
