@@ -31,7 +31,7 @@ public class DictatePane extends JPanel {
 		wordField = new JTextField();
 		wordField.setFont(new Font("SansSerif", Font.BOLD, 30));
 		wordField.setHorizontalAlignment(SwingConstants.CENTER);
-		wordField.setForeground(Color.WHITE);
+		wordField.setForeground(Color.GRAY);
 		wordField.setEnabled(false);
 		wordField.setEditable(false);
 		horizontalBox.add(wordField);
@@ -45,14 +45,16 @@ public class DictatePane extends JPanel {
 		Component verticalStrut = Box.createVerticalStrut(20);
 		verticalBox.add(verticalStrut);
 		
-		JButton btnYesy = new JButton("YES");
-		verticalBox.add(btnYesy);
+		btnYes = new JButton("YES");
+		btnYes.setAlignmentX(Component.CENTER_ALIGNMENT);
+		verticalBox.add(btnYes);
 		
 		Component verticalStrut_2 = Box.createVerticalStrut(40);
 		verticalBox.add(verticalStrut_2);
 		
-		JButton btnNon = new JButton("NO");
-		verticalBox.add(btnNon);
+		btnNo = new JButton("NO");
+		btnNo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		verticalBox.add(btnNo);
 		
 		Component verticalStrut_1 = Box.createVerticalStrut(20);
 		verticalBox.add(verticalStrut_1);
