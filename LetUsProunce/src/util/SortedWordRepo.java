@@ -39,7 +39,7 @@ public class SortedWordRepo implements WordRepo {
   public String toString() {
   	return allWords.toString();
   }
-  public void sort() {
+  private void sort() {
   	Collections.sort(allWords);
   }
   public int getSize() {
