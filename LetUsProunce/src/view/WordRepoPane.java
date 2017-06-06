@@ -1,9 +1,7 @@
 package view;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -12,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
 
@@ -49,11 +46,9 @@ public class WordRepoPane extends JPanel {
 		Box verticalBox = Box.createVerticalBox();
 		panel.add(verticalBox);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		verticalBox.add(scrollPane);
-		
 		list = new JList();
-		verticalBox.add(list);
+		JScrollPane scrollPane = new JScrollPane(list);
+		verticalBox.add(scrollPane);
 		
 		Box verticalBox_1 = Box.createVerticalBox();
 		panel.add(verticalBox_1);
