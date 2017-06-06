@@ -1,7 +1,8 @@
 package controller;
 
 import java.awt.event.ActionEvent;
-
+import model.DictationManager;
+import util.SortedWordRepo;
 import util.mvc.controller.AbstractActionController;
 import util.mvc.controller.MessageHandler;
 import view.LetUsProunceView;
@@ -10,13 +11,15 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 	private LetUsProunceView view;
 	private DictatePaneController dictatePaneController;
 	private WordRepoPaneController wordRepoPaneController;
+	private DictationManager dictationManager = new DictationManager(new SortedWordRepo());
 	
 	public LetUsProunceViewController(LetUsProunceView view) {
 		this.view = view;
 		linkViewsWithController();
+		linkModelsWithController();
 		addActionEvents();
 	}
-	
+
 	public void start() {
 		initUI();
 	}
@@ -25,6 +28,8 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		super.actionPerformed(e);
+		// once start button under dictate menu is activated
+		// switch UI to dictatePane
 		if ((e.getSource().equals(view.mntmDictationStart))) {
 			dictatePaneController.getPane().setVisible(true);
 			wordRepoPaneController.getPane().setVisible(false);
@@ -51,6 +56,11 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 		
 		wordRepoPaneController = new WordRepoPaneController(view.wordRepoPane);
 		wordRepoPaneController.addActionMessageHandler(this);
+	}
+
+	private void linkModelsWithController() {
+		dictatePaneController.addActionMessageHandler(dictationManager);
+		dictationManager.setController(dictatePaneController);
 	}
 	
 	private void initUI() {
