@@ -2,6 +2,6 @@ package util;
 
 import java.util.*;
 
-interface WordExtractor {
+public interface WordExtractor {
   List<Word> read(String filePath);
 }

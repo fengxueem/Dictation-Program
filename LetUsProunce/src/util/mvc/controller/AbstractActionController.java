@@ -13,7 +13,7 @@ abstract public class AbstractActionController extends ActionListenerManager {
 	public String source;
 	public String command;
 	
-	protected List<MessageHandler> aimObjects=new ArrayList<MessageHandler>();
+	protected List<MessageHandler> aimObjects = new ArrayList<MessageHandler>();
 	
 	abstract protected void addActionEvents();
 	
