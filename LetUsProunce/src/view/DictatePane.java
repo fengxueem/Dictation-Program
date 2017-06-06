@@ -10,11 +10,13 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.JLabel;
 
 public class DictatePane extends JPanel {
 	
 	public JTextField wordField;
 	public JButton btnYes, btnNo;
+	public JLabel lblRepoNumber;
 	/**
 	 * Create the panel.
 	 */
@@ -41,6 +43,10 @@ public class DictatePane extends JPanel {
 		Box verticalBox = Box.createVerticalBox();
 		verticalBox.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(verticalBox);
+		
+		lblRepoNumber = new JLabel("");
+		lblRepoNumber.setAlignmentX(Component.CENTER_ALIGNMENT);
+		verticalBox.add(lblRepoNumber);
 		
 		Component verticalStrut = Box.createVerticalStrut(20);
 		verticalBox.add(verticalStrut);
