@@ -1,9 +1,6 @@
-package model;
+package util;
 
 import java.util.*;
-import util.TxtWordExtractor;
-import util.Word;
-import util.WordRepo;
 
 public class SortedWordRepo implements WordRepo {
   private LinkedList<Word> allWords = new LinkedList<Word>();

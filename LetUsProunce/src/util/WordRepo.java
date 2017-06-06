@@ -7,4 +7,7 @@ public interface WordRepo {
   boolean remove(Word w);
   Word get(String wordName);
   Iterator<Word> getIterator();
+  int getSize();
+  String getRepoName();
+  void setRepoName(String repoName);
 }
