@@ -4,6 +4,7 @@ import java.io.File;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
 
 import controller.WordRepoPaneController;
 import util.mvc.controller.MessageHandler;
@@ -16,6 +17,21 @@ public class FileSelector implements MessageHandler {
 	{
 		// enable multiple selection
 		chooser.setMultiSelectionEnabled(true);
+		chooser.setFileFilter(new FileFilter() {
+			
+			@Override
+			public String getDescription() {
+				return "Text(*.txt)";
+			}
+			
+			@Override
+			public boolean accept(File f) {
+				if (f.getName().endsWith("txt") || f.isDirectory()) {
+					return true;
+				}
+				return false;
+			}
+		});
 	}
 	
 	@Override
