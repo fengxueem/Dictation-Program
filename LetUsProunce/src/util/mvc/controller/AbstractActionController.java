@@ -48,6 +48,16 @@ abstract public class AbstractActionController extends ActionListenerManager {
 		return aimObjects;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public <T> T getActionMessageHandlers(Class<T> className) {
+		for (MessageHandler messageHandler : aimObjects) {
+			if (messageHandler.getClass().equals(className)) {
+				return ((T)messageHandler);
+			}
+		}
+		return null;
+	}
+	
 	public void removeActionMessageHandlers(){
 		aimObjects.clear();
 	}
