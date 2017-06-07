@@ -54,7 +54,7 @@ public class DictationManager implements MessageHandler {
 		iterator = repo.getIterator();
 	}
 	
-	public Word getNext() {
+	private Word getNext() {
 		if (iterator.hasNext()) {
 			return iterator.next();
 		} else {
@@ -69,6 +69,10 @@ public class DictationManager implements MessageHandler {
 				return new Word("Congrats!");
 			}
 		}
+	}
+	
+	private Word getFirst() {
+		return repo.getFirst();
 	}
 	
 	public void removeWord() {
@@ -86,8 +90,11 @@ public class DictationManager implements MessageHandler {
 			case "btnYesremove_word_and_next":
 				removeWord();
 			case "btnNokeep_word_and_next":
-			case "btnGostart_dictate":
 				dictatePaneController.setWordField(getNext());
+				dictatePaneController.setWordNum(repo.getSize());
+				return true;
+			case "btnGostart_dictate":
+				dictatePaneController.setWordField(getFirst());
 				dictatePaneController.setWordNum(repo.getSize());
 				return true;
 			default:
