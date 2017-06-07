@@ -4,19 +4,30 @@ import java.util.Iterator;
 import java.util.List;
 import controller.DictatePaneController;
 import util.Word;
+import util.WordExtractor;
 import util.WordRepo;
 import util.mvc.controller.MessageHandler;
 
 public class DictationManager implements MessageHandler {
 	private WordRepo repo;
+	private WordExtractor wordExtractor;
 	private Iterator<Word> iterator;
-	private DictatePaneController controller;
+	private DictatePaneController dictatePaneController;
 
-	public DictationManager(WordRepo repo) {
+	public DictationManager(WordRepo repo, WordExtractor wordExtractor) {
+		this.setWordExtractor(wordExtractor);
 		this.setRepo(repo);
 		iterator = repo.getIterator();
 	}
 	
+	public WordExtractor getWordExtractor() {
+		return wordExtractor;
+	}
+
+	public void setWordExtractor(WordExtractor wordExtractor) {
+		this.wordExtractor = wordExtractor;
+	}
+
 	public WordRepo getRepo() {
 		return repo;
 	}
@@ -25,13 +36,19 @@ public class DictationManager implements MessageHandler {
 		this.repo = repo;
 	}
 
-	public void setController(DictatePaneController controller) {
-		this.controller = controller;
+	public void setDictatePaneController(DictatePaneController controller) {
+		this.dictatePaneController = controller;
 	}
 	
 	public void addWords(List<Word> words) {
 		for (Word w: words) {
 			repo.put(w);
+		}
+	}
+	
+	public void addWordsFromFiles(Object[] filePaths) {
+		for (Object filePath : filePaths) {
+			addWords(wordExtractor.read((String)filePath));
 		}
 	}
 	
@@ -68,7 +85,7 @@ public class DictationManager implements MessageHandler {
 				removeWord();
 			case "btnNokeep_word_and_next":
 			case "btnGostart_dictate":
-				controller.setWordField(getNext());
+				dictatePaneController.setWordField(getNext());
 				return true;
 			default:
 				break;
