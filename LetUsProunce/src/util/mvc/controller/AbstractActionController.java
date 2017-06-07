@@ -16,6 +16,7 @@ abstract public class AbstractActionController extends ActionListenerManager {
 	protected List<MessageHandler> aimObjects = new ArrayList<MessageHandler>();
 	
 	abstract protected void addActionEvents();
+	abstract protected void showView(boolean isToShow);
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {

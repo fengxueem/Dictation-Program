@@ -39,6 +39,10 @@ public class DictatePaneController extends AbstractActionController {
 		dictatePane.wordField.setText(w.getName());
 	}
 	
+	public void setWordNum(int size) {
+		dictatePane.lblRepoNumber.setText(Integer.toString(size));
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		super.actionPerformed(e);
@@ -52,5 +56,10 @@ public class DictatePaneController extends AbstractActionController {
 		addActionEvent(dictatePane.btnGo, "btnGo", "start_dictate");
 		addActionEvent(dictatePane.btnYes, "btnYes", "remove_word_and_next");
 		addActionEvent(dictatePane.btnNo, "btnNo", "keep_word_and_next");
+	}
+
+	@Override
+	protected void showView(boolean isToShow) {
+		dictatePane.setVisible(isToShow);
 	}
 }

@@ -40,4 +40,15 @@ public class WordRepoPaneController extends AbstractActionController {
 		addActionEvent(wordRepoPane.btnAdd, "btnAdd", "add_file");
 		addActionEvent(wordRepoPane.btnRemove, "btnRemove", "remove_file");
 	}
+
+	@Override
+	protected void showView(boolean isToShow) {
+		wordRepoPane.setVisible(isToShow);
+		if (isToShow) {
+			if (getActionMessageHandlers(DictationManager.class) != null) {
+				wordRepoPane.wordRepoInfo.setText(
+						getActionMessageHandlers(DictationManager.class).getRepo().getRepoName());
+			}
+		}
+	}
 }

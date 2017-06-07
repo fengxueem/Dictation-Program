@@ -24,9 +24,16 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 	}
 
 	public void start() {
-		initUI();
+		showView(true);
 	}
-
+	
+	@Override
+	protected void showView(boolean isToShow) {
+		dictatePaneController.showView(false);
+		wordRepoPaneController.showView(true);
+		view.setVisible(true);
+	}
+	
 	// Handle menu-related item's actions
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -34,14 +41,13 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 		// once start button under dictate menu is activated
 		// switch UI to dictatePane
 		if ((e.getSource().equals(view.mntmDictationStart))) {
-			dictatePaneController.getPane().setVisible(true);
-			wordRepoPaneController.getPane().setVisible(false);
+			dictatePaneController.showView(true);
+			wordRepoPaneController.showView(false);
 		} else if (e.getSource().equals(view.mntmFile)) {
 			fileSelector.openChooser();
 		} else if (e.getSource().equals(view.mntmWordRepoEdit)) {
-			System.out.println("haha");
-			dictatePaneController.getPane().setVisible(false);
-			wordRepoPaneController.getPane().setVisible(true);
+			dictatePaneController.showView(false);
+			wordRepoPaneController.showView(true);
 		}
 	}
 	
@@ -85,11 +91,5 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 		
 		wordRepoPaneController.addActionMessageHandler(dictationManager);
 		wordRepoPaneController.addActionMessageHandler(fileSelector);
-	}
-	
-	private void initUI() {
-		view.setVisible(true);
-		dictatePaneController.getPane().setVisible(false);
-		wordRepoPaneController.getPane().setVisible(true);
 	}
 }

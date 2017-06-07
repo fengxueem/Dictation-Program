@@ -27,7 +27,7 @@ public class WordRepoPane extends JPanel {
 		SpringLayout sl_contentPane = new SpringLayout();
 		setLayout(sl_contentPane);
 		
-		wordRepoInfo = new JLabel("as");
+		wordRepoInfo = new JLabel("");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, wordRepoInfo, 3, SpringLayout.NORTH, this);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, wordRepoInfo, 23, SpringLayout.NORTH, this);
 		sl_contentPane.putConstraint(SpringLayout.WEST, wordRepoInfo, 5, SpringLayout.WEST, this);
