@@ -19,8 +19,8 @@ public class LetUsProunceView extends JFrame {
 
 	private JPanel contentPane;
 	private JMenuBar menuBar;
-	public JMenu mnFile, mnWordRepo, mnDictate;
-	public JMenuItem mntmFile, mntmDictationStart;
+	private JMenu mnFile, mnWordRepo, mnDictate;
+	public JMenuItem mntmFile, mntmDictationStart, mntmWordRepoEdit;
 
 	public DictatePane dictatePane;
 	public WordRepoPane wordRepoPane;
@@ -73,6 +73,9 @@ public class LetUsProunceView extends JFrame {
 		
 		mnWordRepo = new JMenu("Word Repo");
 		menuBar.add(mnWordRepo);
+		
+		mntmWordRepoEdit = new JMenuItem("Edit");
+		mnWordRepo.add(mntmWordRepoEdit);
 		
 		mnDictate = new JMenu("Dictate");
 		menuBar.add(mnDictate);

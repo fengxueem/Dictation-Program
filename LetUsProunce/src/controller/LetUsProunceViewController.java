@@ -2,7 +2,9 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import model.DictationManager;
+import model.FileSelector;
 import util.SortedWordRepo;
+import util.TxtWordExtractor;
 import util.mvc.controller.AbstractActionController;
 import util.mvc.controller.MessageHandler;
 import view.LetUsProunceView;
@@ -11,7 +13,8 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 	private LetUsProunceView view;
 	private DictatePaneController dictatePaneController;
 	private WordRepoPaneController wordRepoPaneController;
-	private DictationManager dictationManager = new DictationManager(new SortedWordRepo());
+	private DictationManager dictationManager;
+	private FileSelector fileSelector;
 	
 	public LetUsProunceViewController(LetUsProunceView view) {
 		this.view = view;
@@ -33,6 +36,12 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 		if ((e.getSource().equals(view.mntmDictationStart))) {
 			dictatePaneController.getPane().setVisible(true);
 			wordRepoPaneController.getPane().setVisible(false);
+		} else if (e.getSource().equals(view.mntmFile)) {
+			fileSelector.openChooser();
+		} else if (e.getSource().equals(view.mntmWordRepoEdit)) {
+			System.out.println("haha");
+			dictatePaneController.getPane().setVisible(false);
+			wordRepoPaneController.getPane().setVisible(true);
 		}
 	}
 	
@@ -47,6 +56,10 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 	protected void addActionEvents() {
 		// observe (JMenu: mnDictate) action events
 		addActionEvent(view.mntmDictationStart);
+		// observe (JMenu: mnFile) action events;
+		addActionEvent(view.mntmFile);
+		// observe (JMenu: mnWordRepo) action events;
+		addActionEvent(view.mntmWordRepoEdit);
 	}
 	
 	private void linkViewsWithController() {
@@ -59,8 +72,20 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 	}
 
 	private void linkModelsWithController() {
+		// init dictationManager and link it with controllers
+		dictationManager = new DictationManager(
+				new SortedWordRepo(), new TxtWordExtractor());
+		dictationManager.setDictatePaneController(dictatePaneController);
+		dictationManager.setWordRepoPaneController(wordRepoPaneController);
+		
+		// init fileSelector and link it with wordRepoPaneController
+		fileSelector = new FileSelector();
+		fileSelector.setController(wordRepoPaneController);
+		
 		dictatePaneController.addActionMessageHandler(dictationManager);
-		dictationManager.setController(dictatePaneController);
+		
+		wordRepoPaneController.addActionMessageHandler(dictationManager);
+		wordRepoPaneController.addActionMessageHandler(fileSelector);
 	}
 	
 	private void initUI() {
