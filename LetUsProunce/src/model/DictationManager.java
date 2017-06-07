@@ -50,6 +50,8 @@ public class DictationManager implements MessageHandler {
 		for (Object filePath : filePaths) {
 			addWords(wordExtractor.read((String)filePath));
 		}
+		// renew iterator after word repo is changed
+		iterator = repo.getIterator();
 	}
 	
 	public Word getNext() {
