@@ -13,7 +13,6 @@ public class DictatePaneController extends AbstractActionController {
 	
 	public DictatePaneController(DictatePane dictatePane) {
 		this.dictatePane = dictatePane;
-		initUI();
 		addActionEvents();
 	}
 	
@@ -60,6 +59,7 @@ public class DictatePaneController extends AbstractActionController {
 
 	@Override
 	protected void showView(boolean isToShow) {
+		initUI();
 		dictatePane.setVisible(isToShow);
 	}
 }
