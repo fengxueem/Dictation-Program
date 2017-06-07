@@ -106,7 +106,8 @@ public class LetUsProunceView extends JFrame {
 		contentPane.add(wordRepoPane);
 		// add dictation pane
 		dictatePane = new DictatePane();
-		dictatePane.setBounds(0, 0, WIDTH, HEIGHT);
+		// -20 to save space for scroll bar
+		dictatePane.setBounds(0, 0, WIDTH, HEIGHT-20);
 		contentPane.add(dictatePane);
 	}
 }
