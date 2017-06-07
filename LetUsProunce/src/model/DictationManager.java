@@ -86,6 +86,7 @@ public class DictationManager implements MessageHandler {
 			case "btnNokeep_word_and_next":
 			case "btnGostart_dictate":
 				dictatePaneController.setWordField(getNext());
+				dictatePaneController.setWordNum(repo.getSize());
 				return true;
 			default:
 				break;
