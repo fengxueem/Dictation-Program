@@ -76,7 +76,6 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 		dictationManager = new DictationManager(
 				new SortedWordRepo(), new TxtWordExtractor());
 		dictationManager.setDictatePaneController(dictatePaneController);
-		dictationManager.setWordRepoPaneController(wordRepoPaneController);
 		
 		// init fileSelector and link it with wordRepoPaneController
 		fileSelector = new FileSelector();
