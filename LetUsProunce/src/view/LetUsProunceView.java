@@ -5,7 +5,9 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.LookAndFeel;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -13,7 +15,7 @@ import javax.swing.JOptionPane;
 
 public class LetUsProunceView extends JFrame {
 	
-	private static final int HEIGHT = 300, WIDTH = 450;
+	private static final int HEIGHT = 350, WIDTH = 500;
 
 	private JPanel contentPane;
 	private JMenuBar menuBar;
@@ -57,7 +59,7 @@ public class LetUsProunceView extends JFrame {
 				} 
 			}
 		});
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, WIDTH, HEIGHT);
 		setResizable(false);
 		// create menu bar
 		menuBar = new JMenuBar();
@@ -84,6 +86,14 @@ public class LetUsProunceView extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		addPanels();
+		try {
+            Class<?> lookAndFeel = Class.forName("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+            if (lookAndFeel != null) {
+                UIManager.setLookAndFeel((LookAndFeel) lookAndFeel.newInstance());
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
 	}
 	
 	private void addPanels() {

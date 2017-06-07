@@ -23,7 +23,6 @@ public class DictatePane extends JPanel {
 	public DictatePane() {
 		// use BoxLayout for this panel
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		setSize(450, 300);
 		// create a horizontal box for text field
 		Box horizontalBox = Box.createHorizontalBox();
 		horizontalBox.setAlignmentY(Component.CENTER_ALIGNMENT);

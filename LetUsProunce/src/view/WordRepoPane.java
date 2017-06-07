@@ -24,7 +24,6 @@ public class WordRepoPane extends JPanel {
 	public WordRepoPane() {
 		// use BoxLayout for this panel
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		setSize(450, 300);
 		SpringLayout sl_contentPane = new SpringLayout();
 		setLayout(sl_contentPane);
 		
