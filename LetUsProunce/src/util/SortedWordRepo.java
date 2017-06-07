@@ -33,6 +33,9 @@ public class SortedWordRepo implements WordRepo {
   	}
   	return null;
   }
+  public Word getFirst() {
+	return allWords.getFirst();
+  }
   public Iterator<Word> getIterator() {
     return allWords.iterator();
   }
