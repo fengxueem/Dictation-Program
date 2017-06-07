@@ -19,6 +19,7 @@ public class DictatePaneController extends AbstractActionController {
 	private void initUI() {
 		dictatePane.btnNo.setVisible(false);
 		dictatePane.btnYes.setVisible(false);
+		dictatePane.btnGo.setVisible(true);
 		dictatePane.lblRepoNumber.setVisible(false);
 		setWordField(new Word("Are you ready?"));
 	}
@@ -59,7 +60,9 @@ public class DictatePaneController extends AbstractActionController {
 
 	@Override
 	protected void showView(boolean isToShow) {
-		initUI();
+		if (isToShow) {
+			initUI();
+		}
 		dictatePane.setVisible(isToShow);
 	}
 }

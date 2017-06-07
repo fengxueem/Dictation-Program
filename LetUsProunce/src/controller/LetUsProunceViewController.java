@@ -29,9 +29,11 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 	
 	@Override
 	protected void showView(boolean isToShow) {
-		dictatePaneController.showView(false);
-		wordRepoPaneController.showView(true);
-		view.setVisible(true);
+		if (isToShow) {
+			dictatePaneController.showView(false);
+			wordRepoPaneController.showView(true);
+		}
+		view.setVisible(isToShow);
 	}
 	
 	// Handle menu-related item's actions
