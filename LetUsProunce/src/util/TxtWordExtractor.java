@@ -15,7 +15,7 @@ public class TxtWordExtractor implements WordExtractor{
         while((line = bufferReader.readLine()) != null) {
           wordsString = line.split("\\W+");
           for (String w : wordsString) {
-          	wordList.add(new Word(w));
+          	wordList.add(new Word(w.toLowerCase()));
           }
         }
       } finally {
