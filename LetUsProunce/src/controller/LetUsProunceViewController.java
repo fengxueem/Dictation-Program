@@ -1,15 +1,15 @@
 package controller;
 
-import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+
 import model.DictationManager;
 import model.FileSelector;
 import util.SortedWordRepo;
 import util.TxtWordExtractor;
-import util.mvc.controller.AbstractActionController;
-import util.mvc.controller.MessageHandler;
+import util.mvc.controller.AbstractManagerController;
 import view.LetUsProunceView;
 
-public class LetUsProunceViewController extends AbstractActionController implements MessageHandler {
+public class LetUsProunceViewController extends AbstractManagerController{
 	private LetUsProunceView view;
 	private DictatePaneController dictatePaneController;
 	private WordRepoPaneController wordRepoPaneController;
@@ -17,10 +17,7 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 	private FileSelector fileSelector;
 	
 	public LetUsProunceViewController(LetUsProunceView view) {
-		this.view = view;
-		linkViewsWithController();
-		linkModelsWithController();
-		addActionEvents();
+		super(view);
 	}
 
 	public void start() {
@@ -36,62 +33,48 @@ public class LetUsProunceViewController extends AbstractActionController impleme
 		view.setVisible(isToShow);
 	}
 	
-	// Handle menu-related item's actions
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		super.actionPerformed(e);
-		// once start button under dictate menu is activated
-		// switch UI to dictatePane
-		if ((e.getSource().equals(view.mntmDictationStart))) {
-			dictatePaneController.showView(true);
-			wordRepoPaneController.showView(false);
-		} else if (e.getSource().equals(view.mntmFile)) {
-			fileSelector.openChooser();
-		} else if (e.getSource().equals(view.mntmWordRepoEdit)) {
-			dictatePaneController.showView(false);
-			wordRepoPaneController.showView(true);
-		}
-	}
-	
-	// Take care of the message coming from its panels.
-	@Override
-	public boolean achieveMessage(String source, String command) {
-		// TODO Auto-generated method stub
-		return true;
-	}
-	
 	@Override
 	protected void addActionEvents() {
 		// observe (JMenu: mnDictate) action events
-		addActionEvent(view.mntmDictationStart);
+		addActionEvent(view.mntmDictationStart, "Dictationstart");
 		// observe (JMenu: mnFile) action events;
-		addActionEvent(view.mntmFile);
+		addActionEvent(view.mntmFile, "File");
 		// observe (JMenu: mnWordRepo) action events;
-		addActionEvent(view.mntmWordRepoEdit);
+		addActionEvent(view.mntmWordRepoEdit, "WordRepoEdit");
 	}
 	
-	private void linkViewsWithController() {
-		dictatePaneController = new DictatePaneController(view.dictatePane);
-		// By implementing MessageHandler, this class has power to handler messages coming from its panels
-		dictatePaneController.addActionMessageHandler(this);
+	protected void linkViewsWithController(JFrame view) {
+		this.view = (LetUsProunceView)view;
 		
-		wordRepoPaneController = new WordRepoPaneController(view.wordRepoPane);
-		wordRepoPaneController.addActionMessageHandler(this);
+		dictatePaneController = new DictatePaneController(this.view.dictatePane);
+		
+		wordRepoPaneController = new WordRepoPaneController(this.view.wordRepoPane);
 	}
 
-	private void linkModelsWithController() {
+	protected void linkModelsWithController() {
 		// init dictationManager and link it with controllers
-		dictationManager = new DictationManager(
-				new SortedWordRepo(), new TxtWordExtractor());
+		dictationManager = new DictationManager(new SortedWordRepo(), new TxtWordExtractor());
 		dictationManager.setDictatePaneController(dictatePaneController);
+		wordRepoPaneController.setDictationManager(dictationManager);
+		dictatePaneController.setDictationManager(dictationManager);
 		
 		// init fileSelector and link it with wordRepoPaneController
 		fileSelector = new FileSelector();
 		fileSelector.setController(wordRepoPaneController);
-		
-		dictatePaneController.addActionMessageHandler(dictationManager);
-		
-		wordRepoPaneController.addActionMessageHandler(dictationManager);
-		wordRepoPaneController.addActionMessageHandler(fileSelector);
+		wordRepoPaneController.setFileSelector(fileSelector);
+	}
+	
+	public void actionDictationstart(String command) {
+		dictatePaneController.showView(true);
+		wordRepoPaneController.showView(false);
+	}
+	
+	public void actionFile(String command) {
+		fileSelector.openChooser();
+	}
+	
+	public void actionWordrepoedit(String command) {
+		dictatePaneController.showView(false);
+		wordRepoPaneController.showView(true);
 	}
 }

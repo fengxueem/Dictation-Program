@@ -1,19 +1,26 @@
 package controller;
 
-import java.awt.event.ActionEvent;
-
 import javax.swing.JPanel;
 
+import model.DictationManager;
 import util.Word;
-import util.mvc.controller.AbstractActionController;
+import util.mvc.controller.AbstractServiceController;
 import view.DictatePane;
 
-public class DictatePaneController extends AbstractActionController {
+public class DictatePaneController extends AbstractServiceController{
 	private DictatePane dictatePane;
+	private DictationManager dictationManager;
 	
 	public DictatePaneController(DictatePane dictatePane) {
-		this.dictatePane = dictatePane;
-		addActionEvents();
+		super(dictatePane);
+	}
+	
+	public DictationManager getDictationManager() {
+		return dictationManager;
+	}
+
+	public void setDictationManager(DictationManager dictationManager) {
+		this.dictationManager = dictationManager;
 	}
 	
 	private void initUI() {
@@ -44,11 +51,17 @@ public class DictatePaneController extends AbstractActionController {
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		super.actionPerformed(e);
-		if (e.getSource().equals(dictatePane.btnGo)) {
-			showDictateUI();
+	protected void showView(boolean isToShow) {
+		if (isToShow) {
+			initUI();
 		}
+		dictatePane.setVisible(isToShow);
+	}
+
+	@Override
+	protected void setPanel(JPanel jPanel) {
+		this.dictatePane = (DictatePane)jPanel;
+		
 	}
 	
 	@Override
@@ -57,12 +70,18 @@ public class DictatePaneController extends AbstractActionController {
 		addActionEvent(dictatePane.btnYes, "btnYes", "remove_word_and_next");
 		addActionEvent(dictatePane.btnNo, "btnNo", "keep_word_and_next");
 	}
-
-	@Override
-	protected void showView(boolean isToShow) {
-		if (isToShow) {
-			initUI();
-		}
-		dictatePane.setVisible(isToShow);
+	
+	public void actionBtngo(String command) {
+		showDictateUI();
+	}
+	
+	public void actionBtnyes(String command) {
+		dictationManager.removeWord();
+		setWordField(dictationManager.getNext());
+		setWordNum(dictationManager.getRepo().getSize());
+	}
+	
+	public void actionBtnno(String command) {
+		setWordField(dictationManager.getNext());
 	}
 }

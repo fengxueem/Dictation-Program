@@ -4,21 +4,42 @@ import javax.swing.DefaultListModel;
 import javax.swing.JPanel;
 
 import model.DictationManager;
-import util.mvc.controller.AbstractActionController;
+import model.FileSelector;
+import util.mvc.controller.AbstractServiceController;
 import view.WordRepoPane;
 
-public class WordRepoPaneController extends AbstractActionController {
+public class WordRepoPaneController extends AbstractServiceController {
 	private WordRepoPane wordRepoPane;
+	private DictationManager dictationManager;
+	private FileSelector fileSelector;
 	
+	// Constructor
 	public WordRepoPaneController(WordRepoPane wordRepoPane) {
-		this.wordRepoPane = wordRepoPane;
-		addActionEvents();
+		super(wordRepoPane);
+	}
+	
+	// getters and setters
+	public DictationManager getDictationManager() {
+		return dictationManager;
+	}
+
+	public void setDictationManager(DictationManager dictationManager) {
+		this.dictationManager = dictationManager;
+	}
+	
+	public FileSelector getFileSelector() {
+		return fileSelector;
+	}
+
+	public void setFileSelector(FileSelector fileSelector) {
+		this.fileSelector = fileSelector;
 	}
 
 	public JPanel getPane() {
 		return wordRepoPane;
 	}
 	
+	// functioning methods
 	public void updateList(DefaultListModel<String> listModel) {
 		wordRepoPane.list.setModel(listModel);
 	}
@@ -32,7 +53,22 @@ public class WordRepoPaneController extends AbstractActionController {
 			// empty file paths 
 			return;
 		}
-		getActionMessageHandlers(DictationManager.class).addWordsFromFiles(filePaths);
+		dictationManager.addWordsFromFiles(filePaths);
+	}
+	
+	@Override
+	protected void showView(boolean isToShow) {
+		wordRepoPane.setVisible(isToShow);
+		if (isToShow) {
+			if (dictationManager != null) {
+				wordRepoPane.wordRepoInfo.setText(dictationManager.getRepo().getRepoName());
+			}
+		}
+	}
+
+	@Override
+	protected void setPanel(JPanel jPanel) {
+		this.wordRepoPane = (WordRepoPane)jPanel;
 	}
 	
 	@Override
@@ -40,15 +76,16 @@ public class WordRepoPaneController extends AbstractActionController {
 		addActionEvent(wordRepoPane.btnAdd, "btnAdd", "add_file");
 		addActionEvent(wordRepoPane.btnRemove, "btnRemove", "remove_file");
 	}
-
-	@Override
-	protected void showView(boolean isToShow) {
-		wordRepoPane.setVisible(isToShow);
-		if (isToShow) {
-			if (getActionMessageHandlers(DictationManager.class) != null) {
-				wordRepoPane.wordRepoInfo.setText(
-						getActionMessageHandlers(DictationManager.class).getRepo().getRepoName());
-			}
+	
+	public void actionBtnadd(String command) {
+		addWordsFromFiles(fileSelector.listModel.toArray());
+		fileSelector.listModel.removeAllElements();
+	}
+	
+	public void actionBtnremove(String command) {
+		int[] index = getSelectedIndices();
+		for (int i : index) {
+			fileSelector.listModel.remove(i);
 		}
 	}
 }

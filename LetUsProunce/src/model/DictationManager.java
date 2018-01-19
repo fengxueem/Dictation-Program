@@ -6,9 +6,8 @@ import controller.DictatePaneController;
 import util.Word;
 import util.WordExtractor;
 import util.WordRepo;
-import util.mvc.controller.MessageHandler;
 
-public class DictationManager implements MessageHandler {
+public class DictationManager {
 	private WordRepo repo;
 	private WordExtractor wordExtractor;
 	private Iterator<Word> iterator;
@@ -54,7 +53,7 @@ public class DictationManager implements MessageHandler {
 		iterator = repo.getIterator();
 	}
 	
-	private Word getNext() {
+	public Word getNext() {
 		if (iterator.hasNext()) {
 			return iterator.next();
 		} else {
@@ -82,24 +81,5 @@ public class DictationManager implements MessageHandler {
 		} catch (IllegalStateException e) {
 			// next() should be called first!
 		}
-	}
-	
-	@Override
-	public boolean achieveMessage(String source, String command) {
-		switch (source + command) {
-			case "btnYesremove_word_and_next":
-				removeWord();
-			case "btnNokeep_word_and_next":
-				dictatePaneController.setWordField(getNext());
-				dictatePaneController.setWordNum(repo.getSize());
-				return true;
-			case "btnGostart_dictate":
-				dictatePaneController.setWordField(getFirst());
-				dictatePaneController.setWordNum(repo.getSize());
-				return true;
-			default:
-				break;
-		}
-		return false;
 	}
 }

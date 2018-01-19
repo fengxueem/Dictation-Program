@@ -7,12 +7,11 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 
 import controller.WordRepoPaneController;
-import util.mvc.controller.MessageHandler;
 
-public class FileSelector implements MessageHandler {
+public class FileSelector {
 	private WordRepoPaneController wordRepoPaneController;
 	private JFileChooser chooser = new JFileChooser();
-	private DefaultListModel<String> listModel = new DefaultListModel<String>();
+	public DefaultListModel<String> listModel = new DefaultListModel<String>();
 	
 	{
 		// enable multiple selection
@@ -34,25 +33,6 @@ public class FileSelector implements MessageHandler {
 		});
 	}
 	
-	@Override
-	public boolean achieveMessage(String source, String command) {
-		switch (source + command) {
-			case "btnAddadd_file":
-				wordRepoPaneController.addWordsFromFiles(listModel.toArray());
-				listModel.removeAllElements();
-				return true;
-			case "btnRemoveremove_file":
-				int[] index = wordRepoPaneController.getSelectedIndices();
-				for (int i : index) {
-					listModel.remove(i);
-				}
-				return true;
-			default:
-				break;
-		}
-		return false;
-	}
-
 	public void setController(WordRepoPaneController controller) {
 		this.wordRepoPaneController = controller;
 	}
